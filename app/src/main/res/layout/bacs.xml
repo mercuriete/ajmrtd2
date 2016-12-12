@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<TextView
+	        android:text="Click a BAC entry to select action"
+	        android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content"
+		    />
+	<ScrollView
+		android:layout_width="fill_parent" 
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:fillViewport="true"
+	     >
+		<ListView
+			android:id="@+id/listW"
+			android:layout_width="fill_parent" 
+	    	android:layout_height="wrap_content" 
+	    	android:choiceMode="singleChoice"
+	    	/>
+    </ScrollView>
+   	<Button
+   		android:id="@+id/readNewW"
+   		android:text="read new Passport"
+   		style="@style/Button"
+   		android:layout_width="match_parent"
+   		android:layout_height="wrap_content" 
+   		/>
+   	<Button
+   		android:id="@+id/tryAll"
+   		android:text="try all BACs"
+   		style="@style/Button"
+   		android:layout_width="match_parent"
+   		android:layout_height="wrap_content" />
+</LinearLayout>

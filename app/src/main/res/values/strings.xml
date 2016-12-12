@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ajmrtd</string>
+    
+    <string name="infotextTeaser">BAC - Basic Access Control for \n Passports </string>
+    
+    <string name="menu_opt_info">info</string>
+    
+    
+    
+    <string name="infotext_q1">Can anyone read your Passport without you knowing it?</string>
+    <string name="infotext_q2">Can you read anyone\'s Passport without her knowing it?</string>
+    <string name="infotext_a1">No, thats not possible. You have to prove that you hold the Passport in hand, by sending the Passport No. and two dates written on the Passport. These data are known as BAC-Keys (Basic Access Control). ajmrtd allows you to store and manage different BAC-Keys for convenience.</string>
+    
+    <string name="infotext_q3">Where can I get more information?</string>
+    <string name="infotext_a2">http://sourceforge.net/projects/ajmrtd/</string>
+    
+    
+    
+    
+    <string name="moreInfosLabel">more...</string>
+    <string name="knownBACsHeading">List of known BACs</string>
+    
+    
+    
+    
+    <string name="saveImageLabel">save Image to gallery</string>
+    <string name="closeLabel">close</string>
+    
+    
+    <string name="selectDOB">Select Date of Birth </string>
+    <string name="selectDOE">Select Date of Expiry </string>
+    
+    
+    <string name="bacEditorInfo">Info: Before we can talk to the Passport, we have to prove that we actually hold it in hand by sending these data.</string>
+</resources>

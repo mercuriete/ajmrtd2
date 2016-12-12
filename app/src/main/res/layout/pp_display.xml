@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  >
+  
+	  <ScrollView
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content"
+	  	>
+  
+		  <TableLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:stretchColumns="1">
+			
+			<ImageView
+			  	android:id="@+id/pp_display_iv"
+			  	android:layout_width="match_parent"
+			  	android:layout_height="match_parent" />
+		
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="Document Infos"
+		            android:padding="3dip" />
+		    </TableRow>
+		    <View
+		        android:layout_height="1dip"
+		        android:background="#FF909090" />
+		    
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="Document Number "
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_documentNumberW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="personalNumber: "
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_personalNumberW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="issuingState"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_issuingStateW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		    
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="dateOfExpiry"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_dateOfExpiryW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		    
+		    <View
+		        android:layout_height="4dip"
+		        android:background="#FF909090" />
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="Personal Infos"
+		            android:padding="3dip" />
+		    </TableRow>
+		    <View
+		        android:layout_height="1dip"
+		        android:background="#FF909090" />
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="primary identifier"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_primaryIdentifierW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="secondary identifiers"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_secondaryIdentifiersW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="gender"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_genderW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		    
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="nationality"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_nationalityW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		    
+		    <TableRow>
+		        <TextView
+		            android:layout_column="1"
+		            android:text="dateOfBirth"
+		            android:padding="3dip" />
+		        <TextView
+		        	android:id="@+id/ppd_dateOfBirthW"
+		            android:text=""
+		            android:gravity="right"
+		            android:padding="3dip" />
+		    </TableRow>
+		    
+		    <View
+		        android:layout_height="4dip"
+		        android:background="#FF909090" />
+		    
+		    <Button
+			android:id="@+id/ppd_savePicW"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:text="@string/saveImageLabel"
+			/>
+			<Button
+				android:id="@+id/ppd_closeW"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="@string/closeLabel"
+				/>
+		</TableLayout>
+
+	</ScrollView>
+  
+</LinearLayout>
