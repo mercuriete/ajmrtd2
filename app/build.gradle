@@ -26,5 +26,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'org.jmrtd:jmrtd:0.5.11'
+    compile 'net.sf.scuba:scuba-sc-android:0.0.12'
     testCompile 'junit:junit:4.12'
 }

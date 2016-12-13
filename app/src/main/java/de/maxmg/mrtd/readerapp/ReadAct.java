@@ -22,16 +22,6 @@
 
 package de.maxmg.mrtd.readerapp;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.jmrtd.lds.icao.MRZInfo;
-
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -49,12 +39,22 @@ import android.util.Log;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.jmrtd.lds.icao.MRZInfo;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 import de.maxmg.mrtd.readerapp.data.Factory;
 import de.maxmg.mrtd.readerapp.data.PassportDO;
-import de.maxmg.mrtd.readerapp.service.MRTDConnectionResult;
 import de.maxmg.mrtd.readerapp.service.IMRTDConnectionProgressListener;
 import de.maxmg.mrtd.readerapp.service.MRTDConnection;
+import de.maxmg.mrtd.readerapp.service.MRTDConnectionResult;
 import de.maxmg.utils.OnScreenLogger;
 
 
@@ -84,6 +84,7 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 	
 	
 	private ArrayList<BACSpecDO> bacs;
+	private BACSpecDO selectedBac;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -194,7 +195,8 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 		
 		
 		isodep.setTimeout(10000);
-		MRTDConnection con = new MRTDConnection(this, isodep, bacs);
+		//TODO: Only pass the selected BAC to conection
+		MRTDConnection con = new MRTDConnection(this, isodep, bacs.get(0));
 		timeStart = System.currentTimeMillis();
 		new AsyncRead().execute(con);
 		

@@ -22,10 +22,8 @@
 
 package de.maxmg.mrtd.readerapp.service;
 
-import java.io.InputStream;
-import java.security.Security;
-import java.util.ArrayList;
-import java.util.List;
+import android.nfc.tech.IsoDep;
+import android.util.Log;
 
 import net.sf.scuba.smartcards.CardService;
 import net.sf.scuba.smartcards.CardServiceException;
@@ -33,7 +31,6 @@ import net.sf.scuba.smartcards.CardServiceException;
 import org.jmrtd.BACKey;
 import org.jmrtd.PassportService;
 import org.jmrtd.lds.CVCAFile;
-
 import org.jmrtd.lds.icao.DG11File;
 import org.jmrtd.lds.icao.DG12File;
 import org.jmrtd.lds.icao.DG14File;
@@ -49,8 +46,10 @@ import org.jmrtd.lds.icao.MRZInfo;
 import org.jmrtd.lds.iso19794.FaceInfo;
 import org.jmrtd.lds.iso19794.FingerInfo;
 
-import android.nfc.tech.IsoDep;
-import android.util.Log;
+import java.io.InputStream;
+import java.security.Security;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 import de.maxmg.utils.MessageBuilder;
@@ -63,13 +62,13 @@ public class MRTDConnection {
 	
 	final private IMRTDConnectionProgressListener log;
 	final private IsoDep isodep;
-	final private ArrayList<BACSpecDO> bacs;
+	final private BACSpecDO bac;
 	
-	public MRTDConnection(IMRTDConnectionProgressListener log, IsoDep isodep, ArrayList<BACSpecDO> bacs) {
+	public MRTDConnection(IMRTDConnectionProgressListener log, IsoDep isodep, BACSpecDO bac) {
 		super();
 		this.log = log;
 		this.isodep = isodep;
-		this.bacs = bacs;
+		this.bac = bac;
 	}
 
 	public MRTDConnectionResult readPassport() {
@@ -83,7 +82,7 @@ public class MRTDConnection {
 
 			PassportService ps = new PassportService( CardService.getInstance(isodep) );
 
-			ps.doBAC(new BACKey("","",""));
+			ps.doBAC(new BACKey(this.bac.getDocumentNumber(),this.bac.getDateOfBirth(),this.bac.getDateOfExpiry()));
 			return this.getPassInfos(ps, false);
 
 		}
