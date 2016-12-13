@@ -13,13 +13,14 @@
   
 		  <TableLayout 
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="wrap_content"
 		    android:stretchColumns="1">
 			
 			<ImageView
 			  	android:id="@+id/pp_display_iv"
 			  	android:layout_width="match_parent"
-			  	android:layout_height="match_parent" />
+			  	android:layout_height="match_parent"
+				android:contentDescription="The passport face image"/>
 		
 		
 		    <TableRow>
@@ -40,7 +41,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_documentNumberW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		
@@ -52,7 +53,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_personalNumberW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		
@@ -64,7 +65,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_issuingStateW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		    
@@ -76,7 +77,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_dateOfExpiryW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		    
@@ -101,7 +102,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_primaryIdentifierW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		
@@ -113,7 +114,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_secondaryIdentifiersW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		
@@ -125,7 +126,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_genderW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		    
@@ -137,7 +138,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_nationalityW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		    
@@ -149,7 +150,7 @@
 		        <TextView
 		        	android:id="@+id/ppd_dateOfBirthW"
 		            android:text=""
-		            android:gravity="right"
+		            android:gravity="end"
 		            android:padding="3dip" />
 		    </TableRow>
 		    

@@ -22,11 +22,12 @@
 
 package de.maxmg.mrtd.readerapp.data;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -42,7 +43,7 @@ public class BACSpecDO implements Parcelable {
 	public static final String EXTRA_BAC_COL = "EXTRA_BAC_COL";
 	
 	
-	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyMMdd");
+	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyMMdd", Locale.US);
 
 	private String documentNumber;
 	private String dateOfBirth;
