@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ajmrtd</string>
-    
     <string name="infotextTeaser">BAC - Basic Access Control for \n Passports </string>
-    
     <string name="menu_opt_info">info</string>
-    
-    
-    
     <string name="infotext_q1">Can anyone read your Passport without you knowing it?</string>
     <string name="infotext_q2">Can you read anyone\'s Passport without her knowing it?</string>
     <string name="infotext_a1">No, thats not possible. You have to prove that you hold the Passport in hand, by sending the Passport No. and two dates written on the Passport. These data are known as BAC-Keys (Basic Access Control). ajmrtd allows you to store and manage different BAC-Keys for convenience.</string>
-    
     <string name="infotext_q3">Where can I get more information?</string>
     <string name="infotext_a2">http://sourceforge.net/projects/ajmrtd/</string>
-    
-    
-    
-    
-    <string name="moreInfosLabel">more...</string>
+    <string name="moreInfosLabel">more…</string>
     <string name="knownBACsHeading">List of known BACs</string>
-    
-    
-    
-    
     <string name="saveImageLabel">save Image to gallery</string>
     <string name="closeLabel">close</string>
-    
-    
     <string name="selectDOB">Select Date of Birth </string>
     <string name="selectDOE">Select Date of Expiry </string>
-    
-    
     <string name="bacEditorInfo">Info: Before we can talk to the Passport, we have to prove that we actually hold it in hand by sending these data.</string>
+    <string name="click_BAC">Click a BAC entry to select action</string>
+    <string name="read_new_passport">read new Passport</string>
+    <string name="try_all_passports">try all BACs</string>
+    <string name="BAC">BAC</string>
+    <string name="enter_document_number">Please enter Document Number</string>
+    <string name="document_number_hint">document number…</string>
+    <string name="enter_date_birth">select Date of Birth</string>
+    <string name="enter_date_expiry">select Date of Expiry</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">Cancel</string>
+    <string name="pasport_image_description">The passport face image</string>
+    <string name="document_infos">Document Infos</string>
+    <string name="document_number">Document Number</string>
+    <string name="personal_number">personal number:</string>
+    <string name="issuing_state">issuing state</string>
+    <string name="date_of_expiry">date of expiry</string>
+    <string name="personal_infos">Personal Infos</string>
+    <string name="primary_identifier">primary identifier</string>
+    <string name="secondary_identifiers">secondary identifiers</string>
+    <string name="gender">gender</string>
+    <string name="nationality">nationality</string>
+    <string name="date_of_birth">date of birth</string>
+    <string name="read">read</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+    <string name="read_new">read new</string>
 </resources>

@@ -220,7 +220,9 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 		try
 		{
 			progressDialog.dismiss();
-		} catch(Exception e){}
+		} catch(Exception e){
+			Log.e(TAG, e.toString(),e);
+		}
 		StringWriter w = new StringWriter();
 		ex.printStackTrace(new PrintWriter(w));
 		line( w.toString() );
@@ -343,7 +345,9 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 			{
 				is.close();
 			}
-			catch( IOException e ) {}
+			catch( IOException e ) {
+				Log.e(TAG, e.toString(),e);
+			}
 			return face;
 		}
 		
