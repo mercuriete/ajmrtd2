@@ -146,9 +146,9 @@ public class BACSpecDOStore {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE " + TABLE_BAC + " ("
-                    + COL_DOC_NUM + " STRING PRIMARY KEY,"
-                    + COL_DOB + " STRING,"
-                    + COL_DOE + " STRING"
+                    + COL_DOC_NUM + " TEXT PRIMARY KEY,"
+                    + COL_DOB + " TEXT,"
+                    + COL_DOE + " TEXT"
                     + ");");
         }
 
