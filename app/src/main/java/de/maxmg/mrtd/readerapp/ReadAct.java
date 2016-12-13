@@ -48,7 +48,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 import de.maxmg.mrtd.readerapp.data.Factory;

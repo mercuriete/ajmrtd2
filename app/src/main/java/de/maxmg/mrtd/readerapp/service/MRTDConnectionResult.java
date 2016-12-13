@@ -26,8 +26,6 @@ import java.io.InputStream;
 
 import org.jmrtd.lds.icao.MRZInfo;
 
-import android.graphics.Bitmap;
-
 public class MRTDConnectionResult {
 	
 	private MRZInfo mrzInfo;

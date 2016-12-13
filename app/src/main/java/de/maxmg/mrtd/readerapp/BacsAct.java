@@ -23,10 +23,6 @@
 package de.maxmg.mrtd.readerapp;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,7 +30,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
-import android.nfc.tech.IsoDep;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -43,7 +38,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
