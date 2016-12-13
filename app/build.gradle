@@ -21,6 +21,8 @@ android {
         //we need to figure out why bounce castle is using javax
         //because android lint complaint invalid package
         disable 'InvalidPackage'
+        textReport true
+        textOutput 'stdout'
     }
 }
 
