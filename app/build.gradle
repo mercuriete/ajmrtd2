@@ -20,7 +20,7 @@ android {
     lintOptions {
         //we need to figure out why bounce castle is using javax
         //because android lint complaint invalid package
-        disable 'GoogleAppIndexingWarning','InvalidPackage'
+        disable 'InvalidPackage'
     }
 }
 
