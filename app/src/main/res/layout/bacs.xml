@@ -9,22 +9,27 @@
         android:layout_height="wrap_content"
         android:text="@string/click_BAC" />
 
-    <ListView
-        android:id="@+id/listW"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:choiceMode="singleChoice" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <ListView
+            android:id="@+id/listW"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice" />
+    </ScrollView>
 
     <Button
         android:id="@+id/readNewW"
-        style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/read_new_passport" />
 
     <Button
         android:id="@+id/tryAll"
-        style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/try_all_passports" />

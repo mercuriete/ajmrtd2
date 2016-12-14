@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical"
-  >
-	<TextView
-  		android:layout_width="match_parent"
-	  	android:layout_height="wrap_content"
-	  	android:text="@string/BAC" />
-	  	
-		<ScrollView
-	  		android:layout_width="match_parent"
-	  		android:layout_height="wrap_content" >
-	  	 	<LinearLayout
-			  android:layout_width="match_parent"
-			  android:layout_height="wrap_content"
-			  android:orientation="vertical"
-			  >
-		        <TextView
-		            android:text="@string/enter_document_number"
-		            android:padding="3dip" 
-		            android:layout_width="match_parent"
-			  		android:layout_height="wrap_content"
-		            />
-		        <EditText
-			  		android:id="@+id/docNum"
-			  		android:layout_width="match_parent"
-				  	android:layout_height="wrap_content"
-				  	android:inputType="textCapCharacters|textNoSuggestions"
-				  	android:hint="@string/document_number_hint"
-				  	android:maxLines="1"
-				  	android:lines="1"
-				  	android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-				  	/>
-	    		<Button
-		            android:id="@+id/selectDOB"
-		            android:text="@string/enter_date_birth"
-		            android:layout_width="match_parent"
-			  		android:layout_height="wrap_content"
-			  		style="@style/Button"
-		             />
-	    		<Button
-	    			android:id="@+id/selectDOE"
-		            android:text="@string/enter_date_expiry"
-		            android:layout_width="match_parent"
-			  		android:layout_height="wrap_content"
-			  		style="@style/Button"
-		            />
-			<LinearLayout
-			  	android:layout_width="match_parent"
-			  	android:layout_height="wrap_content"
-			  	android:orientation="horizontal" >
-				<Button
-					android:id="@+id/bacEditor_cancelW"
-					android:text="@string/CANCEL"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_weight="1"
-					style="@style/Button"
-					/>
-			  	<Button
-			  		android:id="@+id/bacEditor_okW"
-				  	android:text="@string/OK"
-				  	android:layout_width="wrap_content"
-			  		android:layout_height="wrap_content"
-			  		android:layout_weight="1"
-			  		style="@style/Button"
-				  	/>
-			</LinearLayout>
-			<TextView
-				android:layout_width="match_parent"
-			  	android:layout_height="wrap_content"
-			  	android:text="@string/bacEditorInfo" />
-		</LinearLayout>  	
-	</ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/BAC" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dip"
+                android:text="@string/enter_document_number" />
+
+            <EditText
+                android:id="@+id/docNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:hint="@string/document_number_hint"
+                android:inputType="textCapCharacters|textNoSuggestions"
+                android:lines="1"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/selectDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_date_birth" />
+
+            <Button
+                android:id="@+id/selectDOE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_date_expiry" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bacEditor_cancelW"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/CANCEL" />
+
+                <Button
+                    android:id="@+id/bacEditor_okW"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/OK" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bacEditorInfo" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
