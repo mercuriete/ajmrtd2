@@ -23,6 +23,6 @@
 package de.maxmg.mrtd.readerapp.service;
 
 public interface IMRTDConnectionProgressListener {
-	public void onProgress(String msg);
-	public void onError(String msg, Exception e);
+	void onProgress(String msg);
+	void onError(String msg, Exception e);
 }

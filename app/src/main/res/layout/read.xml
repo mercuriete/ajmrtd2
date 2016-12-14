@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  	<ScrollView
-		android:id="@+id/consoleScroll"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:layout_weight="1" >
-		
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		    android:orientation="vertical"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    >
-		    <TextView  
-			    android:id="@+id/console"
-			    android:layout_width="fill_parent" 
-			    android:layout_height="fill_parent" 
-			    style="@style/Console"
-		    />
-		</LinearLayout>
-    </ScrollView>
-</LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/consoleScroll"
+    android:layout_width="0dp"
+    android:layout_height="fill_parent"
+    android:layout_weight="1">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/console"
+            style="@style/Console"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+</ScrollView>
+
