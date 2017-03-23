@@ -102,7 +102,7 @@ public class PPDisplayAct extends Activity implements OnClickListener {
 	}
 	
 	private void updateView( PassportDO pp ) {
-		iv.setImageBitmap( pp.getFace() );
+		//iv.setImageBitmap( pp.getFace() );
 		documentNumberW.setText( pp.getDocumentNumber() );
 		personalNumberW.setText( pp.getPersonalNumber() );
 		issuingStateW.setText( pp.getIssuingState() );

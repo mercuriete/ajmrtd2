@@ -250,7 +250,9 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 		if( checkResult(result) )
 		{
 			mrzInfo = result.getMRZInfo();
-			startBitmapDecode(result);
+			//startBitmapDecode(result);
+
+			resultComplete(mrzInfo,null);
 		}
 	}
 	
@@ -269,19 +271,19 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 		else if( result.getFaceInputStream() == null )
 		{
 			Log.e(TAG, "result.getFaceInputStream() == null");
-			return false;
+			return true;
 		}
 		
 		return true;
 	}
 	
 	private void startBitmapDecode(MRTDConnectionResult result) {
-		progressDialog.setMessage("Decoding Image...");
+		//progressDialog.setMessage("Decoding Image...");
 		line("start image decoding");
 		timeStart = System.currentTimeMillis();
 		
-		InputStream is = result.getFaceInputStream();
-		new AsyncImageDecode(getCacheDir()).execute(is);
+		//InputStream is = result.getFaceInputStream();
+		//new AsyncImageDecode(getCacheDir()).execute(is);
 	}
 	
 	private void handleBitmapDecoded(Bitmap result) {
@@ -291,18 +293,12 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 	private void resultComplete( MRZInfo mrzInfo, Bitmap face ) {
 		PassportDO pp = Factory.createPassport(mrzInfo, face);
 		
-		if( face == null )
-		{
-			setResult(RESULT_CANCELED);
-		}
-		else
-		{
-			Bundle extras = new Bundle();
-			extras.putParcelable( PassportDO.EXTRA_PASSPORTDO, pp);
-			Intent i = new Intent();
-			i.putExtras(extras);
-			setResult(RESULT_OK, i );
-		}
+
+		Bundle extras = new Bundle();
+		extras.putParcelable( PassportDO.EXTRA_PASSPORTDO, pp);
+		Intent i = new Intent();
+		i.putExtras(extras);
+		setResult(RESULT_OK, i );
 		
 		finish();
 	}

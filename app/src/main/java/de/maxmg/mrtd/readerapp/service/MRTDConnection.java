@@ -73,6 +73,7 @@ public class MRTDConnection {
 
     public MRTDConnectionResult readPassport() {
         Security.addProvider(new SecurityProvider("myProv", 1, "hi"));
+        Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
 
         MessageBuilder mb = new MessageBuilder();
 
@@ -81,9 +82,14 @@ public class MRTDConnection {
         try {
 
             PassportService ps = new PassportService(CardService.getInstance(isodep));
+            ps.open();
+            ps.sendSelectApplet(false);
 
             ps.doBAC(new BACKey(this.bac.getDocumentNumber(), this.bac.getDateOfBirth(), this.bac.getDateOfExpiry()));
-            return this.getPassInfos(ps, false);
+            MRTDConnectionResult result =  this.getPassInfos(ps, false);
+            ps.close();
+            progress("finish");
+            return result;
 
         } catch (CardServiceException e) {
             e.printStackTrace();
@@ -101,10 +107,9 @@ public class MRTDConnection {
 
 
         List<Short> fileList = new ArrayList<>();
-        fileList.add(PassportService.EF_COM);
         fileList.add(PassportService.EF_DG1);
-        fileList.add(PassportService.EF_DG2);
-        fileList.add(PassportService.EF_DG3);
+        //fileList.add(PassportService.EF_DG2);
+        //fileList.add(PassportService.EF_DG3);
 
         for (short fid : fileList) {
 
@@ -116,17 +121,17 @@ public class MRTDConnection {
                     Log.w(TAG, "Got null inputstream while trying to display " + Integer.toHexString(fid & 0xFFFF));
                 }
                 switch (fid) {
-                    case PassportService.EF_COM:
-                    /* NOTE: Already processed this one. */
-                        break;
                     case PassportService.EF_DG1:
+                        Log.i(TAG, "Before: DG1");
                         InputStream dg1In = passport.getInputStream(PassportService.EF_DG1);
                         DG1File dg1 = new DG1File(dg1In);
                         MRZInfo mrzInfo = dg1.getMRZInfo();
 
                         res.setMRZInfo(mrzInfo);
+                        Log.i(TAG, "After: DG1: " + dg1.toString());
                         break;
                     case PassportService.EF_DG2:
+                        Log.i(TAG, "Before: DG2");
                         DG2File dg2 = new DG2File(in);
                         List<FaceInfo> faces = dg2.getFaceInfos();
 //					for (FaceInfo face: faces) 
@@ -136,6 +141,7 @@ public class MRTDConnection {
 //					}
                         InputStream faceInputStream = in;
                         res.setFaceInputStream(faceInputStream);
+                        Log.i(TAG, "After: DG2");
                         break;
                     case PassportService.EF_DG3:
                         DG3File dg3 = new DG3File(in);
