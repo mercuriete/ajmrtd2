@@ -22,8 +22,6 @@
 
 package de.maxmg.mrtd.readerapp;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -43,6 +41,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 import de.maxmg.mrtd.readerapp.data.BACSpecDOStore;
 
@@ -248,13 +249,11 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	  switch (item.getItemId()) {
-	  case R.id.menu_opt_info:
-	    startActivity( new Intent(this, InfoAct.class));
-	    return true;
-	  default:
-	    return super.onContextItemSelected(item);
-	  }
+		if (item.getItemId() == R.id.menu_opt_info) {
+			startActivity(new Intent(this, InfoAct.class));
+			return true;
+		}
+		return super.onContextItemSelected(item);
 	}
 	
 	private void refreshAdapter() {

@@ -123,35 +123,6 @@ public class PPDisplayAct extends Activity implements OnClickListener {
 		else if( v == savePicW )
 		{
 			Toast.makeText(this, "not available in this version", Toast.LENGTH_SHORT).show();
-			//createExternalStoragePublicPicture( pp.getFace() );
 		}
-	}
-	
-	private void createExternalStoragePublicPicture(Bitmap b) {
-	    File path = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES);
-	    File file = new File(path, "PassportPic.jpg");
-
-	    try {
-	        // Make sure the Pictures directory exists.
-	        path.mkdirs();
-
-	        OutputStream os = new FileOutputStream(file);
-	        b.compress( Bitmap.CompressFormat.JPEG, 100, os);
-	        os.close();
-
-	        // Tell the media scanner about the new file so that it is
-	        // immediately available to the user.
-	        MediaScannerConnection.scanFile(this, new String[] { file.toString() }, null, 
-	        		new MediaScannerConnection.OnScanCompletedListener() {
-			        	@Override
-			        	public void onScanCompleted(String path, Uri uri) {
-			                Log.i("ExternalStorage", "Scanned " + path + ":");
-			                Log.i("ExternalStorage", "-> uri=" + uri);
-			            }
-			        });
-	    } catch (IOException e) {
-	        // Unable to create file, likely because external storage is not currently mounted.
-	        Log.w("ExternalStorage", "Error writing " + file, e);
-	    }
 	}
 }

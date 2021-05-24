@@ -9,18 +9,11 @@
         android:layout_height="wrap_content"
         android:text="@string/click_BAC" />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/listW"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
-
-        <ListView
-            android:id="@+id/listW"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:choiceMode="singleChoice" />
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice" />
 
     <Button
         android:id="@+id/readNewW"
