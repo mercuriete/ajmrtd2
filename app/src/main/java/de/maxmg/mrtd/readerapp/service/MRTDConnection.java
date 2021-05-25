@@ -80,8 +80,8 @@ public class MRTDConnection {
         progress("start");
 
         try {
-
-            PassportService ps = new PassportService(CardService.getInstance(isodep));
+            // I didn't know what I did. 1024,1024,false,false are just magic numbers choosen by luck
+            PassportService ps = new PassportService(CardService.getInstance(isodep),1024,1024,false,false);
             ps.open();
             ps.sendSelectApplet(false);
 
