@@ -1,15 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    def getVersionCode = {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'rev-list', '--count', 'HEAD'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim().toInteger()
+    }
+
+    def getVersionName = {
+        return new Date().format('yy.MM.dd')
+    }
+
+    ext.version_name = getVersionName()
+    ext.version_code = getVersionCode()
     repositories {
+        google()
         jcenter()
         maven {
-            url 'https://maven.google.com/'
-            name 'Google'
+            url "https://plugins.gradle.org/m2/"
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.1.1"
+        classpath "com.hiya:jacoco-android:0.2"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -18,14 +35,29 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+apply plugin: "org.sonarqube"
+
+//sonar configuration
+sonarqube {
+    properties {
+        property "sonar.organization", "mercuriete-github"
+        property "sonar.projectKey", "mercuriete_ajmrtd2"
+        property "sonar.host.url", "https://sonarcloud.io"
+
+        property "sonar.projectVersion", project.version_name
+        property "sonar.sourceEncoding", "UTF-8"
+
+        property "sonar.coverage.jacoco.xmlReportPaths", getRootDir().toString() + "/app/build/jacoco/jacoco.xml"
+        property "sonar.junit.reportsPath", getRootDir().toString() + "/app/build/test-results/testDebugUnitTest/"
+        property "sonar.androidLint.reportPaths", getRootDir().toString() + "/app/build/reports/lint-results-debug.xml"
+    }
 }
