@@ -60,9 +60,9 @@ public class MRTDConnection {
     private static final String TAG = "MRTDConnection";
 
 
-    final private IMRTDConnectionProgressListener log;
-    final private IsoDep isodep;
-    final private BACSpecDO bac;
+    private final IMRTDConnectionProgressListener log;
+    private final IsoDep isodep;
+    private final BACSpecDO bac;
 
     public MRTDConnection(IMRTDConnectionProgressListener log, IsoDep isodep, BACSpecDO bac) {
         super();
