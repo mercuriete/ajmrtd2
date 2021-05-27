@@ -93,7 +93,6 @@ public class MRTDConnection {
 
         } catch (CardServiceException e) {
             e.printStackTrace();
-            error("error:", e);
         }
 
         return null;
@@ -202,10 +201,6 @@ public class MRTDConnection {
 
     private void progress(String msg) {
         log.onProgress(msg);
-    }
-
-    private void error(String msg, Exception e) {
-
     }
 
 }

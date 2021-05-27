@@ -8,10 +8,5 @@ public class InfoAct extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infos);
-        prepareWidgets();
     }
-	
-	private void prepareWidgets() {
-	}
-	
 }
