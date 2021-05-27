@@ -21,10 +21,6 @@
 
 package de.maxmg.mrtd.readerapp;
 
-import java.text.ParseException;
-import java.util.Date;
-
-import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -35,6 +31,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+
+import java.text.ParseException;
+import java.util.Date;
+
+import de.maxmg.mrtd.readerapp.data.BACSpecDO;
 
 
 /**
@@ -152,10 +153,10 @@ public class BacEditorAct extends Activity implements OnClickListener {
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case DIALOG_ID_DOB :
+		if (id == DIALOG_ID_DOB) {
 			return createDatePickerDialog(dob);
-		case DIALOG_ID_DOE :
+		}
+		if (id == DIALOG_ID_DOE) {
 			return createDatePickerDialog(doe);
 		}
 		return null;
