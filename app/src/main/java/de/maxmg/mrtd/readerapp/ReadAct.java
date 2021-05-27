@@ -336,7 +336,7 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 		@Override
 		protected Bitmap doInBackground(InputStream... params) {
 			InputStream is = params[0];
-			Bitmap face = new BitmapFactory().decodeStream(is);
+			Bitmap face = BitmapFactory.decodeStream(is);
 			try
 			{
 				is.close();
