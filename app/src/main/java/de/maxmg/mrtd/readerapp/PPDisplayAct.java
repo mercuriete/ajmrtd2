@@ -27,7 +27,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +41,7 @@ import de.maxmg.utils.ArrayUtil;
  *
  */
 public class PPDisplayAct extends Activity implements OnClickListener {
-	
-	private ImageView iv;
+
 	private TextView documentNumberW;
 	private TextView personalNumberW;
 	private TextView issuingStateW;
@@ -56,9 +54,7 @@ public class PPDisplayAct extends Activity implements OnClickListener {
 	
 	private Button savePicW;
 	private Button closeW;
-	
-	private PassportDO pp;
-	
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +66,11 @@ public class PPDisplayAct extends Activity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		this.pp = getIntent().getParcelableExtra( PassportDO.EXTRA_PASSPORTDO ); 
+		PassportDO pp = getIntent().getParcelableExtra(PassportDO.EXTRA_PASSPORTDO);
 		updateView(pp);
 	}
 
 	private void prepareWidgets() {
-		iv = (ImageView) findViewById(R.id.pp_display_iv);
 		documentNumberW = (TextView) findViewById(R.id.ppd_documentNumberW);
 		personalNumberW = (TextView) findViewById(R.id.ppd_personalNumberW);
 		issuingStateW = (TextView) findViewById(R.id.ppd_issuingStateW);
