@@ -69,7 +69,7 @@ public class BACSpecDOStore {
 	public Vector<BACSpecDO> getAll() {
 		SQLiteDatabase db = helper.getWritableDatabase();
     	Cursor c = db.query(TABLE_BAC, null, null, null, null, null, null);
-    	Vector<BACSpecDO> result = new Vector<BACSpecDO>();
+    	Vector<BACSpecDO> result = new Vector<>();
     	if (c.getCount() > 0) {
             c.moveToFirst();
             do
