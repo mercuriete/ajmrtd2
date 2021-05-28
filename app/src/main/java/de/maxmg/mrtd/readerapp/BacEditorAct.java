@@ -34,6 +34,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 import de.maxmg.mrtd.readerapp.data.BACSpecDO;
@@ -166,7 +167,9 @@ public class BacEditorAct extends Activity implements OnClickListener {
 	}
 
 	private Dialog createDatePickerDialog(Date d ) {
-		return new DatePickerDialog(this, new OnDateSetListener(d), d.getYear()+1900, d.getMonth(), d.getDate());
+		Calendar c = Calendar.getInstance();
+		c.setTime(d);
+		return new DatePickerDialog(this, new OnDateSetListener(d), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
 	}
 
 	private class OnDateSetListener implements DatePickerDialog.OnDateSetListener {
@@ -178,11 +181,12 @@ public class BacEditorAct extends Activity implements OnClickListener {
 
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			subject.setYear(year);
-			subject.setMonth(monthOfYear);
-			subject.setDate(dayOfMonth);
+			Calendar c = Calendar.getInstance();
+			c.set(Calendar.YEAR, year);
+			c.set(Calendar.MONTH, monthOfYear);
+			c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+			subject.setTime(c.getTimeInMillis());
 			updateDisplay();
 		}
-		
 	}
 }
