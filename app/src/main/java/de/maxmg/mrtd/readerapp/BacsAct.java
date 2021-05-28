@@ -108,20 +108,16 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 		
 		resolveIntent( getIntent() );
 	}
-	
+
 	private void resolveIntent(Intent intent) {
-		if( intent != null )
-		{
-			if( NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction()) )
-			{
-				Tag t = intent.getParcelableExtra( NfcAdapter.EXTRA_TAG );
-				ArrayList<BACSpecDO> bacsArrayList = new ArrayList<BACSpecDO>();
-				bacsArrayList.addAll( bacs.getAll() );
-				read( bacsArrayList, t);
-			}
+		if (intent != null && NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction())) {
+			Tag t = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+			ArrayList<BACSpecDO> bacsArrayList = new ArrayList<BACSpecDO>();
+			bacsArrayList.addAll(bacs.getAll());
+			read(bacsArrayList, t);
 		}
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
