@@ -22,13 +22,13 @@
 
 package de.maxmg.mrtd.readerapp.data;
 
-import java.util.Vector;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.Vector;
 
 /**
  * DB-Interface to deal with BACSpecDOs
@@ -81,19 +81,19 @@ public class BACSpecDOStore {
         
         return result;
 	}
-	
-	private String getDocumentNumber( Cursor c ) {
-		return c.getString( c.getColumnIndex(COL_DOC_NUM) );
+
+	private String getDocumentNumber(Cursor c) {
+		return c.getString(Math.max(0, c.getColumnIndex(COL_DOC_NUM)));
 	}
-	
-	private String getDateOfBirth( Cursor c ) {
-		return c.getString( c.getColumnIndex(COL_DOB) );
+
+	private String getDateOfBirth(Cursor c) {
+		return c.getString(Math.max(0, c.getColumnIndex(COL_DOB)));
 	}
-	
-	private String getDateOfExpiry( Cursor c ) {
-		return c.getString( c.getColumnIndex(COL_DOE) );
+
+	private String getDateOfExpiry(Cursor c) {
+		return c.getString(Math.max(0, c.getColumnIndex(COL_DOE)));
 	}
-	
+
 	public void save( BACSpecDO b ) {
 		if( has(b.getDocumentNumber()) )
 		{
