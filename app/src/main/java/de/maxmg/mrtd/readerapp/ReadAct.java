@@ -71,9 +71,7 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
 	private static final String TAG = "ReadAct";
 
 	public static final String ACTION_READ = "ACTION_READ";
-	
-	private TextView console;
-	private ScrollView consoleScroll;
+
 	private OnScreenLogger osl;
 	private ProgressDialog progressDialog;
 	
@@ -102,8 +100,8 @@ public class ReadAct extends Activity implements IMRTDConnectionProgressListener
     }
 	
 	private void prepareWidgets() {
-		console = (TextView) findViewById(R.id.console);
-		consoleScroll = (ScrollView) findViewById(R.id.consoleScroll);
+		TextView console = (TextView) findViewById(R.id.console);
+		ScrollView consoleScroll = (ScrollView) findViewById(R.id.consoleScroll);
 
 		osl = new OnScreenLogger(console, consoleScroll);
 	}

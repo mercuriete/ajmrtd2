@@ -67,8 +67,7 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 	private static final int REQ_READ_PP = 3;
 	private Button readNewW;
 	private Button tryAllW;
-	private ListView listW;
-	
+
 	private BACSpecDOStore bacs;
 	private ArrayAdapter<BACSpecDO> listA;
 	
@@ -93,8 +92,8 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
         
         tryAllW = (Button) findViewById(R.id.tryAll);
         tryAllW.setOnClickListener(this);
-        
-        listW = (ListView) findViewById(R.id.listW);
+
+		ListView listW = (ListView) findViewById(R.id.listW);
         listA = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bacs.getAll());
         listW.setAdapter(listA);
         listW.setOnItemClickListener( this );
