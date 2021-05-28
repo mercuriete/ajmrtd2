@@ -79,8 +79,8 @@ public class BacEditorAct extends Activity implements OnClickListener {
 			{
 				docNumW.setText( bac.getDocumentNumber() );
 				try {
-					dob = BACSpecDO.SDF.parse(bac.getDateOfBirth());
-					doe = BACSpecDO.SDF.parse(bac.getDateOfExpiry());
+					dob = bac.getSdf().parse(bac.getDateOfBirth());
+					doe = bac.getSdf().parse(bac.getDateOfExpiry());
 				} catch (ParseException e) {
 					Log.e("", "", e);
 				}
@@ -95,14 +95,16 @@ public class BacEditorAct extends Activity implements OnClickListener {
 
 	private void updateDisplay() {
 		String dobLabel = getResources().getString( R.string.selectDOB );
+		// this DTO is just for access the SimpleDateFormat
+		BACSpecDO bac = new BACSpecDO("","","");
 		if( dob != null )
-			dobLabel += " " + BACSpecDO.SDF.format(dob);
+			dobLabel += " " + bac.getSdf().format(dob);
 
 		selectDobW.setText( dobLabel );
 
 		String doeLabel = getResources().getString( R.string.selectDOE );
 		if( doe != null )
-			doeLabel += " " + BACSpecDO.SDF.format(doe);
+			doeLabel += " " + bac.getSdf().format(doe);
 
 		selectDoeW.setText( doeLabel );
 
