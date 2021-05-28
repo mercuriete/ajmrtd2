@@ -40,8 +40,6 @@ android {
         disable 'InvalidPackage', 'NewApi'
         textReport true
         textOutput 'stdout'
-        //temporary disable errors
-        abortOnError false
     }
 }
 
