@@ -30,21 +30,8 @@ import net.sf.scuba.smartcards.CardServiceException;
 
 import org.jmrtd.BACKey;
 import org.jmrtd.PassportService;
-import org.jmrtd.lds.CVCAFile;
-import org.jmrtd.lds.icao.DG11File;
-import org.jmrtd.lds.icao.DG12File;
-import org.jmrtd.lds.icao.DG14File;
-import org.jmrtd.lds.icao.DG15File;
 import org.jmrtd.lds.icao.DG1File;
-import org.jmrtd.lds.icao.DG2File;
-import org.jmrtd.lds.icao.DG3File;
-import org.jmrtd.lds.icao.DG4File;
-import org.jmrtd.lds.icao.DG5File;
-import org.jmrtd.lds.icao.DG6File;
-import org.jmrtd.lds.icao.DG7File;
 import org.jmrtd.lds.icao.MRZInfo;
-import org.jmrtd.lds.iso19794.FaceInfo;
-import org.jmrtd.lds.iso19794.FingerInfo;
 
 import java.io.InputStream;
 import java.security.Security;
@@ -75,8 +62,6 @@ public class MRTDConnection {
         Security.addProvider(new SecurityProvider("myProv", 1, "hi"));
         Security.insertProviderAt(new org.spongycastle.jce.provider.BouncyCastleProvider(), 1);
 
-        MessageBuilder mb = new MessageBuilder();
-
         progress("start");
 
         try {
@@ -102,9 +87,6 @@ public class MRTDConnection {
 
         MRTDConnectionResult res = new MRTDConnectionResult();
 
-        MessageBuilder mbTime = new MessageBuilder();
-
-
         List<Short> fileList = new ArrayList<>();
         fileList.add(PassportService.EF_DG1);
         //fileList.add(PassportService.EF_DG2);
@@ -119,73 +101,16 @@ public class MRTDConnection {
                 if (in == null) {
                     Log.w(TAG, "Got null inputstream while trying to display " + Integer.toHexString(fid & 0xFFFF));
                 }
-                switch (fid) {
-                    case PassportService.EF_DG1:
-                        Log.i(TAG, "Before: DG1");
-                        InputStream dg1In = passport.getInputStream(PassportService.EF_DG1);
-                        DG1File dg1 = new DG1File(dg1In);
-                        MRZInfo mrzInfo = dg1.getMRZInfo();
-
-                        res.setMRZInfo(mrzInfo);
-                        Log.i(TAG, "After: DG1: " + dg1.toString());
-                        break;
-                    case PassportService.EF_DG2:
-                        Log.i(TAG, "Before: DG2");
-                        DG2File dg2 = new DG2File(in);
-                        List<FaceInfo> faces = dg2.getFaceInfos();
-//					for (FaceInfo face: faces) 
-//					{ 
-//						InputStream faceInputStream = face.getInputStream();
-//						res.setFaceInputStream( faceInputStream );
-//					}
-                        InputStream faceInputStream = in;
-                        res.setFaceInputStream(faceInputStream);
-                        Log.i(TAG, "After: DG2");
-                        break;
-                    case PassportService.EF_DG3:
-                        DG3File dg3 = new DG3File(in);
-                        List<FingerInfo> fingers = dg3.getFingerInfos();
-                        for (FingerInfo finger : fingers) {
-                            //						displayPreviewPanel.addDisplayedImage(finger, isProgressiveMode);
-                        }
-                        break;
-                    case PassportService.EF_DG4:
-                        DG4File dg4 = new DG4File(in);
-                        break;
-                    case PassportService.EF_DG5:
-                        DG5File dg5 = new DG5File(in);
-                        break;
-                    case PassportService.EF_DG6:
-                        DG6File dg6 = new DG6File(in);
-                        break;
-                    case PassportService.EF_DG7:
-                        DG7File dg7 = new DG7File(in);
-//					List<DisplayedImageInfo> infos = dg7.getImages();
-//					for (DisplayedImageInfo info: infos) { displayPreviewPanel.addDisplayedImage(info, isProgressiveMode); }
-                        break;
-                    case PassportService.EF_DG11:
-                        DG11File dg11 = new DG11File(in);
-                        break;
-                    case PassportService.EF_DG12:
-                        DG12File dg12 = new DG12File(in);
-                        break;
-                    case PassportService.EF_DG14:
-                        DG14File dg14 = new DG14File(in);
-                        break;
-                    case PassportService.EF_DG15:
-                        DG15File dg15 = new DG15File(in);
-                        break;
-                    case PassportService.EF_SOD:
-                    /* NOTE: Already processed this one above. */
-                        break;
-                    case PassportService.EF_CVCA:
-                        CVCAFile cvca = new CVCAFile(in);
-                        break;
-                    default:
-                        String message = "Displaying of file " + Integer.toHexString(fid) + " not supported!";
-                        if ((fid & 0x010F) == fid) {
-                            message = "Displaying of DG" + "xxx" + " not supported!";
-                        }
+                // We are only reading DG1 at this moment
+                // if you want to see what code was here you can check this commit
+                // git checkout e942341ee1bbda64bb52e06251b1f7ebdc001200
+                if (fid == PassportService.EF_DG1) {
+                    Log.i(TAG, "Before: DG1");
+                    InputStream dg1In = passport.getInputStream(PassportService.EF_DG1);
+                    DG1File dg1 = new DG1File(dg1In);
+                    MRZInfo mrzInfo = dg1.getMRZInfo();
+                    res.setMRZInfo(mrzInfo);
+                    Log.i(TAG, "After: DG1: " + dg1.toString());
                 }
             } catch (Exception ioe) {
                 String errorMessage = "Exception reading file " + Integer.toHexString(fid) + ": \n"
