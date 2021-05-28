@@ -26,6 +26,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -81,7 +82,7 @@ public class BacEditorAct extends Activity implements OnClickListener {
 					dob = BACSpecDO.SDF.parse(bac.getDateOfBirth());
 					doe = BACSpecDO.SDF.parse(bac.getDateOfExpiry());
 				} catch (ParseException e) {
-					e.printStackTrace();
+					Log.e("", "", e);
 				}
 				
 				

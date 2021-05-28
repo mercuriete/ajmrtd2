@@ -77,7 +77,7 @@ public class MRTDConnection {
             return result;
 
         } catch (CardServiceException e) {
-            e.printStackTrace();
+            Log.e("", "", e);
         }
 
         return null;
