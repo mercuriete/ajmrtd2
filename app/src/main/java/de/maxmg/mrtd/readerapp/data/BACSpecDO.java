@@ -41,24 +41,24 @@ public class BACSpecDO implements Parcelable {
 	
 	public static final String EXTRA_BAC = "EXTRA_BAC";
 	public static final String EXTRA_BAC_COL = "EXTRA_BAC_COL";
-	
-	
-	public static final SimpleDateFormat SDF = new SimpleDateFormat("yyMMdd", Locale.US);
 
-	private String documentNumber;
-	private String dateOfBirth;
-	private String dateOfExpiry;
+
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd", Locale.US);
+
+	private final String documentNumber;
+	private final String dateOfBirth;
+	private final String dateOfExpiry;
 
 	public BACSpecDO(String documentNumber, String dateOfBirth, String dateOfExpiry) {
 		this.documentNumber = documentNumber.trim();
 		this.dateOfBirth = dateOfBirth;
 		this.dateOfExpiry = dateOfExpiry;
-		
-		
 	}
 
 	public BACSpecDO(String documentNumber, Date dateOfBirth, Date dateOfExpiry) {
-		this( documentNumber, SDF.format(dateOfBirth), SDF.format(dateOfExpiry));
+		this.documentNumber = documentNumber;
+		this.dateOfBirth = this.sdf.format(dateOfBirth);
+		this.dateOfExpiry = this.sdf.format(dateOfExpiry);
 	}
 
 	
@@ -116,5 +116,9 @@ public class BACSpecDO implements Parcelable {
 		documentNumber = in.readString();
 		dateOfBirth = in.readString();
 		dateOfExpiry = in.readString();
+	}
+
+	public SimpleDateFormat getSdf() {
+		return sdf;
 	}
 }
