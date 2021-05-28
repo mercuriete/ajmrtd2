@@ -95,7 +95,7 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
         tryAllW.setOnClickListener(this);
         
         listW = (ListView) findViewById(R.id.listW);
-        listA = new ArrayAdapter<BACSpecDO>(this, android.R.layout.simple_list_item_1, bacs.getAll());
+        listA = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bacs.getAll());
         listW.setAdapter(listA);
         listW.setOnItemClickListener( this );
 	}
@@ -112,7 +112,7 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 	private void resolveIntent(Intent intent) {
 		if (intent != null && NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction())) {
 			Tag t = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-			ArrayList<BACSpecDO> bacsArrayList = new ArrayList<BACSpecDO>();
+			ArrayList<BACSpecDO> bacsArrayList = new ArrayList<>();
 			bacsArrayList.addAll(bacs.getAll());
 			read(bacsArrayList, t);
 		}
@@ -167,7 +167,7 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 		}
 		else if( v == tryAllW )
 		{
-			ArrayList<BACSpecDO> bacsArrayList = new ArrayList<BACSpecDO>();
+			ArrayList<BACSpecDO> bacsArrayList = new ArrayList<>();
 			bacsArrayList.addAll( bacs.getAll() );
 			read( bacsArrayList );
 		}
@@ -175,7 +175,7 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 	
 	private void read(BACSpecDO b)
 	{
-		ArrayList<BACSpecDO> bacs = new ArrayList<BACSpecDO>();
+		ArrayList<BACSpecDO> bacs = new ArrayList<>();
 		bacs.add(b);
 		read( bacs );
 	}
