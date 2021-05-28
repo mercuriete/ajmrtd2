@@ -28,6 +28,7 @@ import android.os.Parcelable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 
 /**
@@ -87,6 +88,11 @@ public class BACSpecDO implements Parcelable {
 		return documentNumber.equals(previous.documentNumber) &&
 		dateOfBirth.equals(previous.dateOfBirth) &&
 		dateOfExpiry.equals(previous.dateOfExpiry);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(documentNumber, dateOfBirth, dateOfExpiry);
 	}
 
 	@Override
