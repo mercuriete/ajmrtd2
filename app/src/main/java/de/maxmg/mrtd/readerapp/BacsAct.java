@@ -171,13 +171,13 @@ public class BacsAct extends Activity implements OnClickListener, OnItemClickLis
 			read( bacsArrayList );
 		}
 	}
-	
-	private void read(BACSpecDO b)
-	{
-		ArrayList<BACSpecDO> bacs = new ArrayList<>();
-		bacs.add(b);
-		read( bacs );
+
+	private void read(BACSpecDO b) {
+		ArrayList<BACSpecDO> bacsArr = new ArrayList<>();
+		bacsArr.add(b);
+		read(bacsArr);
 	}
+
 	private void read(ArrayList<BACSpecDO> bs)
 	{
 		Intent i = new Intent( BacsAct.this, ReadAct.class )
