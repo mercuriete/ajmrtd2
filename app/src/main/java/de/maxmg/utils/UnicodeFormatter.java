@@ -25,6 +25,10 @@ package de.maxmg.utils;
 
 public class UnicodeFormatter  {
 
+   private UnicodeFormatter() {
+      throw new IllegalStateException("Utility class");
+   }
+
    public static String byteToHex(byte b) {
       // Returns hex String representation of byte b
       char hexDigit[] = {

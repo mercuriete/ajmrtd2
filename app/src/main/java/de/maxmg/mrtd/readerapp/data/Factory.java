@@ -37,8 +37,11 @@ import android.graphics.Bitmap;
  *
  */
 public class Factory {
-	
-	
+
+	private Factory() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static PassportDO createPassport(MRZInfo m, Bitmap face )
 	{
 		PassportDO d = new PassportDO();
