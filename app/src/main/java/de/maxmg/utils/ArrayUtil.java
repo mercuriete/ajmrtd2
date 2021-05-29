@@ -23,7 +23,11 @@
 package de.maxmg.utils;
 
 public class ArrayUtil {
-	
+
+	private ArrayUtil() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static String join( String[] a, String sep ) {
 		StringBuilder b = new StringBuilder();
 		for( String s : a) b.append(s).append(sep);
