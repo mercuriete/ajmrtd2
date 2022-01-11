@@ -49,7 +49,7 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'org.jmrtd:jmrtd:0.7.31'
+    implementation 'org.jmrtd:jmrtd:0.7.32'
     implementation 'net.sf.scuba:scuba-sc-android:0.0.23'
     implementation 'com.madgag.spongycastle:core:1.58.0.0'
     implementation 'com.madgag.spongycastle:prov:1.58.0.0'
